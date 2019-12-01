@@ -1,0 +1,5 @@
+node_modules/
+*API.json
+build/
+.idea
+src/config/config.js
