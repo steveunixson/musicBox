@@ -1,15 +1,29 @@
 import player from 'play-sound';
 import Config from './Config.class';
 
+class Sampler extends Array {
+  add(value) {
+    super.push(value);
+  }
+
+  delete() {
+    const [last] = this.slice(-1);
+    last.kill();
+    super.pop();
+  }
+}
+
 export default class Player extends Config {
   constructor() {
     super();
     this.player = player({ player: 'play' });
+    this.tracks = new Sampler();
   }
 
   play(track) {
     try {
-      this.track = this.player.play(track);
+      const sample = this.player.play(track);
+      this.tracks.add(sample);
     } catch (e) {
       console.log(e);
     }
@@ -17,7 +31,7 @@ export default class Player extends Config {
 
   stop() {
     try {
-      this.track.kill();
+      this.tracks.delete();
     } catch (e) {
       console.log(e);
     }
