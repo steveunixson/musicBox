@@ -37,7 +37,7 @@
     "eslint-plugin-import": "^2.17.3",
     "mocha": "^6.2.2",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   },
   "eslintConfig": {
